@@ -1,36 +1,61 @@
-function calcAverageCalories(days) {
-  if (days.length === 0) {
-      return 0;
-  }
+const getUsersWithFriend = (users, friendName) => {
+  return users.filter(user => user.friends.includes(friendName));
+};
 
-  let totalCalories = 0;
-
-  for (let day of days) {
-      totalCalories += day.calories;
-  }
-
-  return totalCalories / days.length;
+// Example data
+const allUsers = [
+{
+  name: "Moore Hensley",
+  friends: ["Sharron Pace"]
+},
+{
+  name: "Sharlene Bush",
+  friends: ["Briana Decker", "Sharron Pace"]
+},
+{
+  name: "Ross Vazquez",
+  friends: ["Marilyn Mcintosh", "Padilla Garrison", "Naomi Buckner"]
+},
+{
+  name: "Elma Head",
+  friends: ["Goldie Gentry", "Aisha Tran"]
+},
+{
+  name: "Carey Barr",
+  friends: ["Jordan Sampson", "Eddie Strong"]
+},
+{
+  name: "Blackburn Dotson",
+  friends: ["Jacklyn Lucas", "Linda Chapman"]
+},
+{
+  name: "Sheree Anthony",
+  friends: ["Goldie Gentry", "Briana Decker"]
 }
+];
 
-// Example usage
-console.log(calcAverageCalories([
-  { day: "monday", calories: 3010 },
-  { day: "tuesday", calories: 3200 },
-  { day: "wednesday", calories: 3120 },
-  { day: "thursday", calories: 2900 },
-  { day: "friday", calories: 3450 },
-  { day: "saturday", calories: 3280 },
-  { day: "sunday", calories: 3300 }
-])); // Output: 3180
+console.log(getUsersWithFriend(allUsers, "Briana Decker")); 
+// Output: [
+//   {
+//     name: "Sharlene Bush",
+//     friends: ["Briana Decker", "Sharron Pace"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
 
-console.log(calcAverageCalories([
-  { day: "monday", calories: 2040 },
-  { day: "tuesday", calories: 2270 },
-  { day: "wednesday", calories: 2420 },
-  { day: "thursday", calories: 1900 },
-  { day: "friday", calories: 2370 },
-  { day: "saturday", calories: 2280 },
-  { day: "sunday", calories: 2610 }
-])); // Output: 2270
+console.log(getUsersWithFriend(allUsers, "Goldie Gentry"));
+// Output: [
+//   {
+//     name: "Elma Head",
+//     friends: ["Goldie Gentry", "Aisha Tran"]
+//   },
+//   {
+//     name: "Sheree Anthony",
+//     friends: ["Goldie Gentry", "Briana Decker"]
+//   }
+// ]
 
-console.log(calcAverageCalories([]));
+console.log(getUsersWithFriend(allUsers, "Adrian Cross" )); // Output: []
