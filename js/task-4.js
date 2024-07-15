@@ -1,3 +1,12 @@
+document.querySelectorAll('label input').forEach(input => {
+  input.addEventListener('focus', function() {
+      this.placeholder = "Type area";
+  });
+  input.addEventListener('blur', function() {
+      this.placeholder = "";
+  });
+});
+
 const loginForm = document.querySelector('.login-form')
 loginForm.addEventListener('submit', (event) => {
   event.preventDefault()
